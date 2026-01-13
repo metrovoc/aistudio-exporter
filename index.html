@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Studio Exporter</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <span class="material-symbols-outlined">auto_awesome</span>
+      <h1>AI Studio Exporter</h1>
+      <p class="subtitle">Clean up Google AI Studio chat history for sharing</p>
+    </header>
+
+    <!-- Drop Zone -->
+    <div class="drop-zone" id="dropZone">
+      <span class="material-symbols-outlined drop-icon">upload_file</span>
+      <p class="drop-text">Drop AI Studio JSON file here</p>
+      <p class="drop-hint">or click to select</p>
+      <input type="file" id="fileInput" hidden>
+    </div>
+
+    <!-- Options -->
+    <div class="options" id="options">
+      <div class="option-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="includeThinking">
+          <span class="checkmark"></span>
+          Include AI thinking process
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="includeSystem">
+          <span class="checkmark"></span>
+          Include system instruction
+        </label>
+      </div>
+
+      <div class="format-select">
+        <label for="formatSelect">Output format</label>
+        <select id="formatSelect">
+          <option value="markdown">Markdown</option>
+          <option value="json">OpenAI JSON</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview-container" id="previewContainer">
+      <div class="preview-header">
+        <span class="material-symbols-outlined">preview</span>
+        <span>Preview</span>
+        <span class="message-count" id="messageCount"></span>
+      </div>
+      <pre class="preview" id="preview"></pre>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions" id="actions">
+      <button class="btn btn-secondary" id="copyBtn">
+        <span class="material-symbols-outlined">content_copy</span>
+        Copy
+      </button>
+      <button class="btn btn-primary" id="downloadBtn">
+        <span class="material-symbols-outlined">download</span>
+        Download
+      </button>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
